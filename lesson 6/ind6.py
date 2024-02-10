@@ -1,0 +1,1 @@
+text = 'python is not a snake'
