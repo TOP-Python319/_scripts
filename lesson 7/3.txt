@@ -1,0 +1,51 @@
+>>> numbers1 = [1, 2, 3]
+>>> id(numbers1)
+139848404278016
+>>> numbers1.append(4)
+>>> numbers
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'numbers' is not defined. Did you mean: 'numbers1'?
+>>> numbers1
+[1, 2, 3, 4]
+>>> numbers1.append(123)
+>>> numbers1
+[1, 2, 3, 4, 123]
+>>> numbers1.append(0)
+>>> numbers1
+[1, 2, 3, 4, 123, 0]
+>>> numbers1.append('текст какой-то')
+>>> numbers1
+[1, 2, 3, 4, 123, 0, 'текст какой-то']
+>>> id(numbers1)
+139848404278016
+>>> 
+>>> 
+>>> numbers2 = numbers1
+>>> numbers1
+[1, 2, 3, 4, 123, 0, 'текст какой-то']
+>>> numbers1.append(999)
+>>> numbers1
+[1, 2, 3, 4, 123, 0, 'текст какой-то', 999]
+>>> numbers2
+[1, 2, 3, 4, 123, 0, 'текст какой-то', 999]
+>>> 
+>>> numbers2.append('последний элемент')
+>>> numbers2
+[1, 2, 3, 4, 123, 0, 'текст какой-то', 999, 'последний элемент']
+>>> numbers1
+[1, 2, 3, 4, 123, 0, 'текст какой-то', 999, 'последний элемент']
+>>> 
+>>> 
+>>> 
+>>> word1 = ['cat', 'dog', 'rat']
+>>> word2 = word1[:]
+>>> word1
+['cat', 'dog', 'rat']
+>>> word2
+['cat', 'dog', 'rat']
+>>> word1.append('bat')
+>>> word1
+['cat', 'dog', 'rat', 'bat']
+>>> word2
+['cat', 'dog', 'rat']
