@@ -1,0 +1,137 @@
+1  Дополните приведенный код так, чтобы он вывел сумму минимального и максимального ключа в словаре my_dict.
+
+```python
+my_dict = {1.12: 'aa', 67.9: 45, 3.11: 'ccc', 7.9: 'dd', 9.2: 'ee', 7.1: 'ff', 0.12: 'qq', 1.91: 'aa', 10.12: [1, 2, 3], 99.0: {9, 0, 1}}
+print(min(my_dict) + max(my_dict))
+```
+____
+
+2  Дополните приведенный код, чтобы он вывел имена всех пользователей (в алфавитном порядке), чей номер оканчивается на 8.
+
+*Примечание. Имена необходимо вывести на одной строке, разделяя символом пробела.*
+
+```python
+users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
+         {'name': 'Helga', 'phone': '555-1618', 'email': 'helga@mail.net'},
+         {'name': 'Olivia', 'phone': '449-3141', 'email': ''},
+         {'name': 'LJ', 'phone': '555-2718', 'email': 'lj@gmail.net'},
+         {'name': 'Ruslan', 'phone': '422-145-9098', 'email': 'rus-lan.cha@yandex.ru'},
+         {'name': 'John', 'phone': '233-421-32', 'email': ''},
+         {'name': 'Lara', 'phone': '+7998-676-2532', 'email': 'g.lara89@gmail.com'},
+         {'name': 'Alina', 'phone': '+7948-799-2434', 'email': 'ali.ch.b@gmail.com'},
+         {'name': 'Robert', 'phone': '420-2011', 'email': ''},
+         {'name': 'Riyad', 'phone': '128-8890-128', 'email': 'r.mahrez@mail.net'},
+         {'name': 'Khabib', 'phone': '+7995-600-9080', 'email': 'kh.nurmag@gmail.com'},
+         {'name': 'Olga', 'phone': '6449-314-1213', 'email': ''},
+         {'name': 'Roman', 'phone': '+7459-145-8059', 'email': 'roma988@mail.ru'},
+         {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
+         {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
+         {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
+
+print(*sorted([i['name'] for i in users if i['phone'][~0] == '8']), sep=' ')
+```
+____
+
+3   Дополните приведенный код, чтобы он вывел имена всех пользователей (в алфавитном порядке), у которых нет информации об электронной почте. 
+
+*Примечание 1. Ключ email может отсутствовать в словаре.*
+
+*Примечание 2. Имена необходимо вывести на одной строке, разделяя символом пробела.*
+
+```python
+users = [{'name': 'Todd', 'phone': '551-1414', 'email': 'todd@gmail.com'},
+         {'name': 'Helga', 'phone': '555-1618'},
+         {'name': 'Olivia', 'phone': '449-3141', 'email': ''},
+         {'name': 'LJ', 'phone': '555-2718', 'email': 'lj@gmail.net'},
+         {'name': 'Ruslan', 'phone': '422-145-9098', 'email': 'rus-lan.cha@yandex.ru'},
+         {'name': 'John', 'phone': '233-421-32', 'email': ''},
+         {'name': 'Lara', 'phone': '+7998-676-2532', 'email': 'g.lara89@gmail.com'},
+         {'name': 'Alina', 'phone': '+7948-799-2434'},
+         {'name': 'Robert', 'phone': '420-2011', 'email': ''},
+         {'name': 'Riyad', 'phone': '128-8890-128', 'email': 'r.mahrez@mail.net'},
+         {'name': 'Khabib', 'phone': '+7995-600-9080', 'email': 'kh.nurmag@gmail.com'},
+         {'name': 'Olga', 'phone': '6449-314-1213', 'email': ''},
+         {'name': 'Roman', 'phone': '+7459-145-8059'},
+         {'name': 'Maria', 'phone': '12-129-3148', 'email': 'm.sharapova@gmail.com'},
+         {'name': 'Fedor', 'phone': '+7445-341-0545', 'email': ''},
+         {'name': 'Tim', 'phone': '242-449-3141', 'email': 'timm.ggg@yandex.ru'}]
+
+print(*sorted(i['name'] for i in users if i.get('email', '') == ''))
+```
+____
+
+4  Напишите программу, которая будет превращать натуральное число в строку, заменяя все цифры в числе на слова:
+
+0 на zero;
+1 на one;
+2 на two;
+3 на three;
+4 на four;
+5 на five;
+6 на six;
+7 на seven;
+8 на eight;
+9 на nine.
+
+**Формат входных данных:**
+На вход программе подается натуральное число.
+
+**Формат выходных данных**
+Программа должна вывести строковое представление числа.
+
+*Примечание. Используйте словарь вместо условного оператора.*
+
+**Пример ввода 1:**
+230
+
+**Пример вывода 1:**
+two three zero
+
+**Пример ввода 2:**
+7
+
+**Пример вывода 2:**
+seven
+
+**Пример ввода 3:**
+11111111
+
+**Пример вывода 3:**
+one one one one one one one one
+
+**Пример ввода 4:**
+83
+
+**Пример вывода 4:**
+eight three
+
+```python
+print(*[{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 0: 'zero'}[int(i)] for i in input()])
+```
+____
+
+5  Дополните приведенный код, чтобы в переменной result хранился словарь, в котором ключи – числа от 1 до 15 (включительно), а значения представляют собой квадраты ключей.
+
+```
+result = {i: i * i for i in range(1, 16)}
+```
+____
+
+6  Дополните приведенный код так, чтобы он объединил содержимое двух словарей dict1 и dict2: если ключ есть в обоих словарях, добавьте его в результирующий словарь со значением, равным сумме соответствующих значений из первого и второго словаря; если ключ есть только в одном из словарей, добавьте его в результирующий словарь с его текущим значением. Результирующий словарь необходимо присвоить переменной result.
+
+```
+dict1 = {'a': 100, 'z': 333, 'b': 200, 'c': 300, 'd': 45, 'e': 98, 't': 76, 'q': 34, 'f': 90, 'm': 230}
+dict2 = {'a': 300, 'b': 200, 'd': 400, 't': 777, 'c': 12, 'p': 123, 'w': 111, 'z': 666}
+
+# решение
+result = {i: dict1.get(i, 0) + dict2.get(i, 0) for i in {**dict1, **dict2}}
+```
+
+7  Дополните приведенный код так, чтобы в переменной result хранился словарь, в котором для каждого символа строки text будет подсчитано количество его вхождений.
+
+```
+text = 'footballcyberpunkextraterritorialityconversationalistblockophthalmoscopicinterdependencemamauserfff'
+
+# решение
+result = {s: text.count(s) for s in text}
+```
