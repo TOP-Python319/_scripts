@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class Shape(ABC):
+
+    @abstractmethod
+    def __init__(self): ...
+
     @abstractmethod
     def area(self): ...
 
@@ -48,7 +52,7 @@ class Triangle(Shape):
 
     def perimeter(self):
         return self.side1 + self.side2 + self.side3
-    
+
 
 c = Circle(5)
 print(c.area())
