@@ -1,0 +1,25 @@
+@startuml
+
+interface Prototype {
+  + clone(): Prototype
+}
+
+class ConcretePrototype1 implements Prototype {
+  + clone(): ConcretePrototype1
+}
+
+class ConcretePrototype2 implements Prototype {
+  + clone(): ConcretePrototype2
+}
+
+class Client {
+  - prototype: Prototype
+  + setPrototype(p: Prototype): void
+  + createObject(): Prototype
+}
+
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+Client o-- Prototype
+
+@enduml

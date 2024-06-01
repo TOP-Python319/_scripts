@@ -1,0 +1,19 @@
+@startuml
+
+scale 2
+
+class Teacher {
+    +name: String
+    +teach()
+}
+
+class University {
+    +name: String
+    +teachers: List
+    +add_teacher(teacher: Teacher)
+    +conduct_classes()
+}
+
+University o-right- Teacher
+
+@enduml

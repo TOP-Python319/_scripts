@@ -1,0 +1,21 @@
+@startuml
+
+scale 2
+
+class Animal {
+    +name: String
+    +speak()
+}
+
+class Dog {
+    +speak() 
+}
+
+class Cat {
+    +speak()
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+
+@enduml

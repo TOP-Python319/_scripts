@@ -1,0 +1,30 @@
+@startuml
+
+scale 2
+
+interface Component {
+  + operation()
+}
+
+class Leaf {
+  + operation()
+}
+
+abstract class Composite {
+  + operation()
+  + add(Component)
+  + remove(Component)
+  + getChild(int)
+  - components: ArrayList<Component>
+}
+
+class ConcreteComposite {
+  + operation()
+}
+
+Component <|-- Leaf
+Component <|-- Composite
+Composite <|-- Component
+ConcreteComposite <|-- Composite
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+
+scale 2
+
+class Person {
+    +name: String
+    +live()
+}
+
+class Heart {
+    +beats: int
+    +beat()
+}
+
+Person *-- Heart : has
+@enduml
