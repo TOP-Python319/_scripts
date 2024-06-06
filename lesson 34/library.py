@@ -5,6 +5,7 @@
 # Книги могут перемещаться между отделами.
 # Читатели могут брать книги в отделе и возвращать их обратно.
 
+
 from dataclasses import dataclass
 
 
@@ -30,9 +31,10 @@ class Library:
             self.books = []
 
         def __str__(self):
-            print(f'Отдел {self.name} имеет книги:')
+            result = f'Отдел {self.name} имеет книги:'
             for book in self.books:
-                print(f'{book.name} by {book.author}, status {book.is_available}')
+                result += f'\n{book.name} by {book.author}, available {"Yes" if book.is_available else "No"}'
+            return result
 
         def add_book(self, book: Book):
             self.books.append(book)
@@ -45,10 +47,12 @@ class Library:
         self.departments = {}
 
     def __str__(self):
-        print(f'Библиотека {self.name} имеет отделы:')
+        result = f'{self.name} имеет отделы:\n'
         for department in self.departments:
+            result += f'\t{department}:\n'
             for book in self.departments[department].books:
-                print(f'{book.name} by {book.author}, status {book.is_available}')
+                result += f'\t\t{book.name} автора {book.author},{" " if book.is_available else " не "}доступна\n'
+        return result
 
     def add_department(self, name: str):
         self.departments[name] = self.__class__.Department(name)
@@ -78,5 +82,7 @@ library.departments[FICTION_BOOKS].add_book(fight_club)
 library.departments[FICTION_BOOKS].add_book(universe_in_a_nutshell)
 
 library.move_book(universe_in_a_nutshell, library.departments[FICTION_BOOKS], library.departments[SCIENCE_BOOKS])
+
+anna_karenina.take()
 
 print(library)

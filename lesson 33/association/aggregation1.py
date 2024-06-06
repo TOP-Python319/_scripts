@@ -30,3 +30,5 @@ university.add_teacher(teacher2)
 
 # Университет проводит занятия
 university.conduct_classes()
+
+
