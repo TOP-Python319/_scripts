@@ -118,7 +118,7 @@ FROM
 	MarvelCharacters
 WHERE
 	year BETWEEN 1960 AND 1970 AND 
-	appearances > 10
+	appearances > 10;
 
 
 -- ПРАКТИКА
@@ -130,7 +130,7 @@ SELECT
 FROM
 	MarvelCharacters
 WHERE
-	name LIKE '%phoenix%'
+	name LIKE '%phoenix%';
 
 
 -- ПРАКТИКА
@@ -144,4 +144,134 @@ FROM
 WHERE
 	(name LIKE '%john%' OR
 	name LIKE '%jane%') AND
-	appearances > 10
+	appearances > 10;
+
+
+-- 10. Выведите пол и количество персонажей
+SELECT 
+	sex,
+	COUNT(*) AS cnt
+FROM
+	MarvelCharacters
+GROUP BY
+	sex;
+
+
+-- 11. Выведите год и количество персонажей
+SELECT 
+	sex,
+	year,
+	COUNT(*) AS cnt
+FROM
+	MarvelCharacters
+WHERE
+	sex IS NOT NULL AND 
+	year IS NOT NULL
+GROUP BY
+	sex,
+	year
+ORDER BY
+	year,
+	sex,
+	cnt;
+
+
+-- 12. Выведите года в которых количество персонажей больше 350
+SELECT 
+	year,
+	COUNT(*) AS cnt
+FROM
+	MarvelCharacters
+WHERE
+	year IS NOT NULL
+GROUP BY
+	year
+HAVING
+	cnt > 350
+ORDER BY
+	year;
+
+
+-- 13. Выведите цвет глаз и количество персонажей с цветными глазными яблоками
+SELECT
+	eye AS цвет_глаз,
+	COUNT(*) AS количество_персонажей
+FROM
+	MarvelCharacters
+WHERE
+	цвет_глаз LIKE '%eyeballs%'
+GROUP BY
+	цвет_глаз;
+
+
+-- 14. Выведите цвет глаз и количество появлений персонажей
+SELECT
+	eye AS цвет_глаз,
+	SUM(appearances) AS количество_появлений
+FROM
+	MarvelCharacters
+WHERE
+	цвет_глаз LIKE '%eyeballs%'
+GROUP BY
+	цвет_глаз
+
+
+-- 15. Выведите год и количество появлений персонажей, количество персонажей и среднее количество появлений (с округлением до 2 знака после запятой) по годам
+SELECT
+	year,
+	SUM(appearances),
+	COUNT(appearances),
+	ROUND(AVG(appearances), 2)
+FROM
+	MarvelCharacters
+WHERE
+	year IS NOT NULL
+GROUP BY
+	year
+ORDER BY
+	year;
+
+
+-- 16. Выведите пол, цвет глаз, цвет волос и количество персонажей с такими параметрами
+SELECT
+	sex,
+	eye,
+	hair,
+	COUNT(*) AS cnt
+FROM
+	MarvelCharacters
+WHERE
+	eye IS NOT NULL AND 
+	hair IS NOT NULL AND
+	sex LIKE '%male%'
+GROUP BY
+	sex,
+	eye,
+	hair
+ORDER BY
+	sex,
+	cnt DESC;
+	
+
+-- 17. Выведите год и количество появлений персонажей, где количество появлений максимальное
+SELECT
+	year,
+	name,
+	MAX(appearances) AS максимальное_количество_появлений
+FROM
+	MarvelCharacters
+WHERE
+	year IS NOT NULL
+GROUP BY
+	year
+ORDER BY
+	year;
+
+
+-- ПРАКТИКА
+-- 18. Сгруппировать персонажей по годам, получить минимальное количество и имя персонажа.
+-- Выбрать имя, год, минимальное количество появлений
+
+-- ПРАКТИКА
+-- 19. Сгруппировать пероснажей по годам, получить максимальное колчество и имя персонажа.
+-- Выбрать имя, год, максимальное количество появлений. Количество появлений 50 и больше
