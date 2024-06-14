@@ -271,7 +271,33 @@ ORDER BY
 -- ПРАКТИКА
 -- 18. Сгруппировать персонажей по годам, получить минимальное количество и имя персонажа.
 -- Выбрать имя, год, минимальное количество появлений
+SELECT
+	year,
+	name,
+	MIN(appearances) AS минимальное_количество_появлений
+FROM
+	MarvelCharacters
+WHERE
+	year IS NOT NULL 
+GROUP BY
+	year
+ORDER BY
+	year;
+
 
 -- ПРАКТИКА
 -- 19. Сгруппировать пероснажей по годам, получить максимальное колчество и имя персонажа.
 -- Выбрать имя, год, максимальное количество появлений. Количество появлений 50 и больше
+SELECT
+	year,
+	name,
+	MAX(appearances) AS максимальное_количество_появлений
+FROM
+	MarvelCharacters
+WHERE
+	year IS NOT NULL AND
+	appearances > 50
+GROUP BY
+	year
+ORDER BY
+	year;
