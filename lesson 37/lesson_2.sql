@@ -106,3 +106,42 @@ WHERE
 	name LIKE '%(Earth-%)' AND
 	name NOT LIKE '%(Earth-616)' AND
 	year IS NOT NULL;
+
+
+-- ПРАКТИКА
+-- 6. Сделать выборку персонажей (имя, год, количество появлений), где год между 1960 и 1970 и количество появлений больше 10
+SELECT
+	name,
+	year,
+	appearances
+FROM
+	MarvelCharacters
+WHERE
+	year BETWEEN 1960 AND 1970 AND 
+	appearances > 10
+
+
+-- ПРАКТИКА
+-- 7. Найдите всех персонажей (имя, год, количество появлений), в имени которых есть 'phoenix'
+SELECT
+	name,
+	year,
+	appearances
+FROM
+	MarvelCharacters
+WHERE
+	name LIKE '%phoenix%'
+
+
+-- ПРАКТИКА
+-- 8. Найти всех персонажей (имя, год, количество появлений), в имени которых есть 'john' или 'jane' и количество появлений больше 10
+SELECT
+	name,
+	year,
+	appearances
+FROM
+	MarvelCharacters
+WHERE
+	(name LIKE '%john%' OR
+	name LIKE '%jane%') AND
+	appearances > 10
