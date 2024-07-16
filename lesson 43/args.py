@@ -22,4 +22,4 @@ def abstr(char, *args):
         print(f'{char} {arg}')
 
 
-abstr('a', 1, 2, 3, 4, 5, 100, 1000, 'python')
+abstr('a', 1, 2, 3, 4, 5, 100, 1000, 'py')
