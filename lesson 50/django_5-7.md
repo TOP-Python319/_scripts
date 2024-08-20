@@ -1,19 +1,4 @@
-# Django ORM
-
-Итак, если Вы рассматриваете учебный пример приложения интервального повторения карточек, то, вероятно, вы остановились на вот такой БД.
-
-```sql
---
--- Файл сгенерирован с помощью SQLiteStudio v3.4.4 в Вт фев 27 18:42:32 2024
---
--- Использованная кодировка текста: System
---
-PRAGMA foreign_keys = off;
-BEGIN TRANSACTION;
-
--- Таблица: Cards
-CREATE TABLE IF NOT EXISTS Cards (
-    CardID INTEGER PRIMARY KEY AUTOINCREMENT,
+FAUTOINCREMENT,
     question TEXT NOT NULL,
     answer TEXT NOT NULL,
     user_id INTEGER DEFAULT(1),
